@@ -30,6 +30,10 @@
           ./modules/host_platform.nix
           ./modules/common.nix
           ./modules/network.nix
+	  {  services.getty.autologinUser = "root"; }
+	  /*{ boot.extraModprobeConfig = ''
+  options dasd_mod dasd=autodetect,nofcx 
+''; }*/
           {
             # V get storage and network to work, these are mainframe specific modules
             boot.initrd.kernelModules = [
@@ -40,7 +44,7 @@
               "qeth_l3"
               "virtio-net"
               "dasd_fba_mod"
-              "dasd_mod"
+              # "dasd_mod" # statically compiled
             ];
           }
 

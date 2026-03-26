@@ -32,6 +32,15 @@
         TASK_DELAY_ACCT = yes;
         IKHEADERS = yes; # bcc needs this for memleak testing
 
+	# for pr_debug
+	DEBUG = yes;
+	GDB_SCRIPTS = yes;
+	DEBUG_DRIVER = yes;
+	
+	# otherwise we can't pass dasd=
+	# over the kernel cmdline
+	DASD = yes;
+
         # test if that fixes kernel
         SCLP_TTY = yes;
         SCLP_CONSOLE = yes;
